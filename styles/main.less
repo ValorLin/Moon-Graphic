@@ -1,0 +1,101 @@
+// custom options
+@moonColor: #13DAB3;
+@starColor: #14DBB4;
+@moonBorderColor: #007459;
+@moonSize: 400px;
+
+// var
+@moonBorderWidth: @moonSize/100;
+@moonShadowSize: @moonSize/4;
+
+.size(@size) {
+  width: @size;
+  height: @size;
+}
+
+.round-border() {
+  border-radius: 50%;
+  border: @moonBorderWidth solid @moonBorderColor;
+}
+
+.background {
+  .size(@moonSize);
+  position: relative;
+  top: 100px;
+}
+
+.moon {
+  .size(@moonSize);
+  .round-border();
+  position: relative;
+  overflow: hidden;
+  background-color: @moonColor;
+  box-shadow: -@moonShadowSize 0 0 rgba(0, 0, 0, 0.1) inset;
+
+  .crater {
+    .round-border();
+    position: absolute;
+    &.big {
+      .size(@moonSize/4);
+    }
+    &.middle {
+      .size(@moonSize/8);
+    }
+    &.small {
+      .size(@moonSize/16);
+    }
+    &.tiny {
+      .size(0);
+    }
+    &.dark {
+      background-color: @moonBorderColor;
+    }
+  }
+}
+
+@flagColor: @starColor;
+@flagHeight: @moonSize/6;
+@flagFontSize: @moonSize/18;
+@flagStickColor:@moonBorderColor;
+@bannerHeight: @moonSize/28;
+.flag {
+  position: absolute;
+  left: 35%;
+  top: -10%;
+
+  .banner {
+    .size(0);
+    line-height: 0;
+    position: absolute;
+    top: @moonBorderWidth;
+    left: @moonBorderWidth;
+
+    border: @bannerHeight solid @flagColor;
+    border-left-width: @bannerHeight*2;
+    border-right: @moonSize/57 solid transparent;
+
+    font-size: @flagFontSize;
+    font-weight: bold;
+    font-family: Arial;
+    text-align: center;
+    color: #ffffff;
+    text-indent: -@moonSize/14;
+
+  }
+
+  .stick {
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    width: 0;
+    height: @flagHeight;
+    border: @moonBorderWidth/2 solid @flagStickColor;
+  }
+
+  .soil {
+    position: absolute;
+    left: -@moonSize/90;
+    width: @moonSize/30;
+    height: 0;
+    border-bottom: @moonBorderWidth/2 solid rgba(0, 0, 0, 0.1);
+  }
+}

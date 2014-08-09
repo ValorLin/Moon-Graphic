@@ -1,0 +1,76 @@
+.background {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  top: 100px;
+}
+.moon {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 4px solid #007459;
+  position: relative;
+  overflow: hidden;
+  background-color: #13dab3;
+  box-shadow: -100px 0 0 rgba(0, 0, 0, 0.1) inset;
+}
+.moon .crater {
+  border-radius: 50%;
+  border: 4px solid #007459;
+  position: absolute;
+}
+.moon .crater.big {
+  width: 100px;
+  height: 100px;
+}
+.moon .crater.middle {
+  width: 50px;
+  height: 50px;
+}
+.moon .crater.small {
+  width: 25px;
+  height: 25px;
+}
+.moon .crater.tiny {
+  width: 0;
+  height: 0;
+}
+.moon .crater.dark {
+  background-color: #007459;
+}
+.flag {
+  position: absolute;
+  left: 35%;
+  top: -10%;
+}
+.flag .banner {
+  width: 0;
+  height: 0;
+  line-height: 0;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 14.28571429px solid #14dbb4;
+  border-left-width: 28.57142857px;
+  border-right: 7.01754386px solid transparent;
+  font-size: 22.22222222px;
+  font-weight: bold;
+  font-family: Arial;
+  text-align: center;
+  color: #ffffff;
+  text-indent: -28.57142857px;
+}
+.flag .stick {
+  border-top-left-radius: 25%;
+  border-top-right-radius: 25%;
+  width: 0;
+  height: 66.66666667px;
+  border: 2px solid #007459;
+}
+.flag .soil {
+  position: absolute;
+  left: -4.44444444px;
+  width: 13.33333333px;
+  height: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
