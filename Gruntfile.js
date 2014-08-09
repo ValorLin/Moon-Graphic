@@ -2,8 +2,8 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         lessFile: 'styles/main.less',
-        tmpCssFile: 'styles/tmp.css',
         destCssFile: 'styles/main.css',
+        tmpCssFile: 'styles/tmp.css',
 
         watch: {
             less: {
@@ -12,7 +12,10 @@ module.exports = function (grunt) {
             },
             autoPrefix: {
                 files: '<%= tmpCssFile %>',
-                tasks: ['autoprefixer']
+                tasks: ['autoprefixer', 'clean'],
+                options: {
+                    event: ['added', 'changed']
+                }
             },
             html: {
                 files: ['index.html', '<%= tmpCssFile %>'],
@@ -26,12 +29,16 @@ module.exports = function (grunt) {
         },
         autoprefixer: {
             '<%= destCssFile %>': '<%= tmpCssFile %>'
+        },
+        clean: {
+            tmp: ['<%= tmpCssFile %>']
         }
     });
 
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['watch']);
 };
