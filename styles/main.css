@@ -1,8 +1,12 @@
 .background {
   width: 400px;
   height: 400px;
-  position: relative;
-  top: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 .moon {
   width: 400px;
